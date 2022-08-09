@@ -10,7 +10,9 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   void error404() => Navigator.of(context).pushNamed('/error404');
 
-  void iniciarSesion() => Navigator.of(context).pushReplacementNamed('/home');
+  void _iniciarSesion() => Navigator.of(context).pushReplacementNamed('/home');
+  void _scannerAdmin() =>
+      Navigator.of(context).pushReplacementNamed('/scanneradmin');
 
   @override
   Widget build(BuildContext context) {
@@ -30,25 +32,25 @@ class _LoginPageState extends State<LoginPage> {
         child: ListView(
           children: <Widget>[
             Padding(
-              padding: const EdgeInsets.all(20.0),
+              padding: const EdgeInsets.all(15.0),
               child: Center(
                   child: Image.asset(
                 'assets/logo365.png',
-                width: 170,
+                width: 150,
               )),
             ),
 
 //Caja de texto Login
 
             Container(
-              margin: const EdgeInsets.all(16.0),
+              margin: const EdgeInsets.all(20.0),
               child: Form(
                 child: Column(
                   children: <Widget>[
                     const ListTile(
                       title: Text("Bienvenido!",
                           style: TextStyle(
-                              fontSize: 25,
+                              fontSize: 20,
                               color: Colors.black,
                               fontWeight: FontWeight.bold),
                           textAlign: TextAlign.center),
@@ -75,7 +77,6 @@ class _LoginPageState extends State<LoginPage> {
                     Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-//Boton Registrarse
                         //boton iniciar sesion
                         ElevatedButton(
                           style: ElevatedButton.styleFrom(
@@ -87,9 +88,9 @@ class _LoginPageState extends State<LoginPage> {
                           child: const Text("Iniciar Sesión",
                               style: TextStyle(
                                   color: Colors.blue,
-                                  fontSize: 25,
+                                  fontSize: 20,
                                   fontWeight: FontWeight.bold)),
-                          onPressed: () => iniciarSesion(),
+                          onPressed: () => _iniciarSesion(),
                         ),
 
                         const SizedBox(height: 20),
@@ -105,10 +106,51 @@ class _LoginPageState extends State<LoginPage> {
                           child: const Text("Registrate !!!",
                               style: TextStyle(
                                   color: Colors.red,
-                                  fontSize: 25,
+                                  fontSize: 20,
                                   fontWeight: FontWeight.bold)),
                           onPressed: () => error404(),
                         ),
+                        const SizedBox(height: 25),
+
+                        TextButton(
+                          child: Text("ADMIN"),
+                          onPressed: () {
+                            showDialog(
+                                context: context,
+                                builder: (context) => AlertDialog(
+                                    title: Text("ADMINISTRADOR"),
+                                    content: Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        TextFormField(
+                                          decoration: InputDecoration(
+                                              labelText: "Usuario",
+                                              border: OutlineInputBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          9.0))),
+                                        ),
+                                        const SizedBox(height: 10),
+                                        TextFormField(
+                                          decoration: InputDecoration(
+                                              labelText: "Contraseña",
+                                              border: OutlineInputBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          9.0))),
+                                        ),
+                                        Center(
+                                          child: ElevatedButton(
+                                            child: Text("Ingresar"),
+                                            onPressed: () {
+                                              _scannerAdmin();
+                                            },
+                                          ),
+                                        )
+                                      ],
+                                    )));
+                          },
+                        )
                       ],
                     )
                   ],
