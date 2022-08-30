@@ -14,6 +14,8 @@ class _AdminScannerPageState extends State<AdminScannerPage> {
   int counter = 0;
   int quantitiProd = 0;
 
+  void _cerrarSesion() => Navigator.of(context).pushReplacementNamed('/login');
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -125,10 +127,12 @@ class _AdminScannerPageState extends State<AdminScannerPage> {
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
                           fixedSize: const Size(160, 45)),
-                      child: Text("",
+                      child: Text("Salir",
                           style: TextStyle(
                               fontSize: 20, fontWeight: FontWeight.bold)),
-                      onPressed: () {},
+                      onPressed: () {
+                        _cerrarSesion();
+                      },
                     )
                   ],
                 ),

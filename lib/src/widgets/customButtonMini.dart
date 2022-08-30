@@ -21,7 +21,7 @@ class CustomButtonMini extends StatelessWidget {
                 ]),
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
-                  primary: const Color.fromARGB(220, 220, 220, 220),
+                  primary: const Color.fromARGB(240, 240, 240, 240),
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20.0))),
               child: child,

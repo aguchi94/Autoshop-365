@@ -107,6 +107,7 @@ class _HomePageState extends State<HomePage> {
             child: Image.asset('assets/boton_off.png', width: 95),
             onPressed: () {
               showDialog(
+                  barrierDismissible: false,
                   barrierColor: const Color.fromARGB(233, 175, 224, 239),
                   context: context,
                   builder: (context) => AlertDialog(

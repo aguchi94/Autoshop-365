@@ -38,7 +38,7 @@ class _CargarSaldoState extends State<CargarSaldo> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               CustomButtonMini(
-                child: Image.asset('assets/ingresar_dinero.png', width: 100),
+                child: Image.asset('assets/billetero.png', width: 100),
                 onPressed: () => {},
               ),
               const SizedBox(width: 5),
@@ -53,12 +53,12 @@ class _CargarSaldoState extends State<CargarSaldo> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               CustomButtonMini(
-                child: Image.asset('assets/transfer.png', width: 100),
+                child: Image.asset('assets/banco.png', width: 100),
                 onPressed: () => {},
               ),
               const SizedBox(width: 5),
               CustomButtonMini(
-                child: Image.asset('assets/credito.png', width: 100),
+                child: Image.asset('assets/enviar_dinero.png', width: 100),
                 onPressed: () => {},
               ),
             ],

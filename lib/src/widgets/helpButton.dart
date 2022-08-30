@@ -23,6 +23,7 @@ class HelpButton extends StatelessWidget {
                     borderRadius: BorderRadius.circular(20.0))),
             onPressed: () {
               showDialog(
+                  barrierDismissible: false,
                   barrierColor: Colors.white54,
                   context: context,
                   builder: (context) => AlertDialog(
