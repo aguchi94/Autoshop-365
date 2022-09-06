@@ -41,7 +41,7 @@ class _AppBarcodeState extends State<AppBarcodeScannerWidget> {
 
     _openManual = widget.openManual;
 
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+    WidgetsBinding.instance?.addPostFrameCallback((timeStamp) {
       TargetPlatform platform = Theme.of(context).platform;
       if (!kIsWeb) {
         if (platform == TargetPlatform.android ||

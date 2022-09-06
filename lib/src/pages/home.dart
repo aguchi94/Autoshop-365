@@ -40,7 +40,7 @@ class _HomePageState extends State<HomePage> {
 //BOTON ESCANEAR
         Row(mainAxisAlignment: MainAxisAlignment.center, children: [
           CustomButton(
-              width: 110,
+              width: 150,
               imageRoute: 'assets/cod_barra.png',
               onPressed: () => _scannerPage()),
           const HelpButton(

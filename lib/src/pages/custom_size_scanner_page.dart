@@ -13,6 +13,7 @@ class _CustomSizeScannerPageState extends State<CustomSizeScannerPage> {
   String _code = '';
   int counter = 0;
   int quantitiProd = 0;
+  int number = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -35,14 +36,15 @@ class _CustomSizeScannerPageState extends State<CustomSizeScannerPage> {
                                   content: Column(
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
-                                      ListTile(
-                                        title: Text(_code,
-                                            style: const TextStyle(
+                                      const ListTile(
+                                        title: Text("Yerba Playadito 500g",
+                                            style: TextStyle(
                                                 fontSize: 25,
                                                 fontWeight: FontWeight.bold)),
-                                        subtitle: Text("PRECIO",
-                                            style: const TextStyle(
+                                        subtitle: Text("\$390,00",
+                                            style: TextStyle(
                                                 fontSize: 25,
+                                                color: Colors.green,
                                                 fontWeight: FontWeight.bold)),
                                       ),
                                       Row(children: [
@@ -80,7 +82,7 @@ class _CustomSizeScannerPageState extends State<CustomSizeScannerPage> {
                                           //DESCARTAR PRODUCTO
                                           ElevatedButton(
                                             style: ElevatedButton.styleFrom(
-                                                fixedSize: const Size(100, 45),
+                                                fixedSize: const Size(120, 45),
                                                 primary: Colors.red),
                                             child: const Text("Descartar",
                                                 style: TextStyle(
@@ -99,7 +101,7 @@ class _CustomSizeScannerPageState extends State<CustomSizeScannerPage> {
                                           //AGREGAR PRODUCTO
                                           ElevatedButton(
                                             style: ElevatedButton.styleFrom(
-                                                fixedSize: const Size(100, 45),
+                                                fixedSize: const Size(120, 45),
                                                 primary: Colors.green),
                                             child: const Text("Agregar",
                                                 style: TextStyle(
@@ -112,7 +114,9 @@ class _CustomSizeScannerPageState extends State<CustomSizeScannerPage> {
                                                 _code = "";
                                                 counter = 0;
                                                 Navigator.of(context).pop();
-                                                setState(() {});
+                                                setState(() {
+                                                  number = number + 1;
+                                                });
                                               } else {}
                                             },
                                           )
@@ -133,16 +137,32 @@ class _CustomSizeScannerPageState extends State<CustomSizeScannerPage> {
           Column(
             children: [
               Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: const Color.fromARGB(220, 220, 220, 220),
-                  ),
-                  height: 300,
-                  width: 300,
-                  child: ListView(),
-                ),
-              )
+                  padding: const EdgeInsets.all(10.0),
+                  child: Container(
+                    decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(20)),
+                      color: Color.fromARGB(220, 220, 220, 220),
+                    ),
+                    height: 420,
+                    width: 350,
+                    child: StatefulBuilder(
+                      builder: ((context, setState) => ListView.builder(
+                            shrinkWrap: true,
+                            itemBuilder: (BuildContext context, int index) {
+                              return Container(
+                                color: Color.fromARGB(255, 203, 180, 241),
+                                child: const ListTile(
+                                  trailing: Icon(Icons.delete),
+                                  title: Text("Playadito 500gr  " + "\$390,00"),
+                                  subtitle: Text("subtitle"),
+                                  leading: Text("1"),
+                                ),
+                              );
+                            },
+                            itemCount: number,
+                          )),
+                    ),
+                  ))
             ],
           )
         ],
