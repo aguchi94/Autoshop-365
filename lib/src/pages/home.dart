@@ -50,19 +50,6 @@ class _HomePageState extends State<HomePage> {
         ]),
         const SizedBox(height: 5),
 
-//BOTON CARRITO
-        Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-          CustomButton(
-              width: 110,
-              imageRoute: 'assets/carrito_vacio.png',
-              onPressed: () => _pagError()),
-          const HelpButton(
-            info: "Presione aquí para ver la lista de productos en el carrito",
-            imageRoute: 'assets/carrito_vacio.png',
-          )
-        ]),
-        const SizedBox(height: 5),
-
 //CARGAR DINERO
         Row(mainAxisAlignment: MainAxisAlignment.center, children: [
           CustomButton(
