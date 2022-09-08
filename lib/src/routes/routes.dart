@@ -1,6 +1,7 @@
 import 'package:aguchi_prueba1/src/pages/admin_scanner_page.dart';
 import 'package:aguchi_prueba1/src/pages/charge_balance.dart';
 import 'package:aguchi_prueba1/src/pages/custom_size_scanner_page.dart';
+import 'package:aguchi_prueba1/src/pages/new_login.dart';
 import 'package:aguchi_prueba1/src/pages/shopping_cart.dart';
 import 'package:aguchi_prueba1/src/pages/user_page.dart';
 import 'package:flutter/material.dart';
@@ -18,5 +19,6 @@ Map<String, WidgetBuilder> getApplicationRoutes() {
     '/cart': (BuildContext context) => const Cart(),
     '/scannerpage': (BuildContext context) => CustomSizeScannerPage(),
     '/scanneradmin': (BuildContext context) => AdminScannerPage(),
+    '/newlogin': (BuildContext context) => NewLoginPage(),
   };
 }

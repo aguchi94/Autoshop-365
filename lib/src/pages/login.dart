@@ -9,7 +9,6 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   void error404() => Navigator.of(context).pushNamed('/error404');
-
   void _iniciarSesion() => Navigator.of(context).pushReplacementNamed('/home');
   void _scannerAdmin() =>
       Navigator.of(context).pushReplacementNamed('/scanneradmin');

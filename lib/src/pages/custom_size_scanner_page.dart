@@ -129,7 +129,7 @@ class _CustomSizeScannerPageState extends State<CustomSizeScannerPage> {
                   fixedSize: const Size(180, 45), primary: Colors.green),
               child: const Text("Finalizar compra"),
               onPressed: () {
-                _compraFinalizada(context);
+                _buyFinished(context);
               },
             ),
           ),
@@ -256,8 +256,9 @@ class ProductController {
   ProductController(int number);
 }
 
-void _compraFinalizada(BuildContext context) {
+void _buyFinished(BuildContext context) {
   showDialog(
+      barrierColor: Colors.black87,
       barrierDismissible: false,
       context: context,
       builder: ((context) => AlertDialog(
