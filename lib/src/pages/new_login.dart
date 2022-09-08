@@ -24,11 +24,20 @@ class _NewLoginPageState extends State<NewLoginPage> {
             children: [
               SizedBox(height: 35),
               //Logo Autoshop
-              Center(
-                  child: Image.asset(
-                'assets/logo365.png',
-                width: 150,
-              )),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.grey[300],
+                  elevation: 0,
+                ),
+                child: Center(
+                    child: Image.asset(
+                  'assets/logo365.png',
+                  width: 150,
+                )),
+                onPressed: () => {
+                  adminUser(context),
+                },
+              ),
               SizedBox(height: 20),
 
               //Bienvenido!!
@@ -56,7 +65,7 @@ class _NewLoginPageState extends State<NewLoginPage> {
                 padding: const EdgeInsets.symmetric(horizontal: 25.0),
                 child: Container(
                   decoration: BoxDecoration(
-                    color: Colors.grey[200],
+                    color: Colors.grey[100],
                     border: Border.all(color: Colors.white),
                     borderRadius: BorderRadius.circular(12),
                   ),
@@ -78,7 +87,7 @@ class _NewLoginPageState extends State<NewLoginPage> {
                 padding: const EdgeInsets.symmetric(horizontal: 25.0),
                 child: Container(
                   decoration: BoxDecoration(
-                    color: Colors.grey[200],
+                    color: Colors.grey[100],
                     border: Border.all(color: Colors.white),
                     borderRadius: BorderRadius.circular(12),
                   ),
@@ -99,22 +108,30 @@ class _NewLoginPageState extends State<NewLoginPage> {
               //sign in button
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                child: Container(
-                  padding: EdgeInsets.all(20),
-                  decoration: BoxDecoration(
-                    color: Colors.deepPurple,
-                    borderRadius: BorderRadius.circular(12),
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.grey[300],
+                    elevation: 0,
                   ),
-                  child: Center(
-                    child: Text(
-                      'Iniciar sesión',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18,
+                  child: Container(
+                    width: 400,
+                    padding: EdgeInsets.all(20),
+                    decoration: BoxDecoration(
+                      color: Colors.deepPurple,
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: Center(
+                      child: Text(
+                        'Iniciar sesión',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                        ),
                       ),
                     ),
                   ),
+                  onPressed: () => _iniciarSesion(),
                 ),
               ),
               SizedBox(height: 25),
@@ -129,17 +146,95 @@ class _NewLoginPageState extends State<NewLoginPage> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  Text(
-                    'Registrarme',
-                    style: TextStyle(
-                      color: Colors.blue,
-                      fontWeight: FontWeight.bold,
+                  TextButton(
+                    child: Text(
+                      'Registrarme',
+                      style: TextStyle(
+                        color: Colors.blue,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
+                    onPressed: () => error404(),
                   ),
                 ],
               ),
+              SizedBox(height: 20),
             ],
           ),
         )));
+  }
+
+  Future<dynamic> adminUser(BuildContext context) {
+    return showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+            backgroundColor: Colors.grey[300],
+            title: Center(
+              child: Text("ADMINISTRADOR",
+                  style: GoogleFonts.bebasNeue(
+                    fontSize: 25,
+                  )),
+            ),
+            content: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                    color: Colors.grey[200],
+                    border: Border.all(color: Colors.white),
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                      border: InputBorder.none,
+                      hintText: 'Usuario',
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 10),
+                Container(
+                  decoration: BoxDecoration(
+                    color: Colors.grey[200],
+                    border: Border.all(color: Colors.white),
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                      border: InputBorder.none,
+                      hintText: 'Contraseña',
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 15),
+                Center(
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.grey[300],
+                      elevation: 0,
+                    ),
+                    child: Container(
+                      padding: EdgeInsets.all(20),
+                      decoration: BoxDecoration(
+                        color: Colors.deepPurple,
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: Center(
+                        child: Text(
+                          'Ingresar',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                          ),
+                        ),
+                      ),
+                    ),
+                    onPressed: () {
+                      _scannerAdmin();
+                    },
+                  ),
+                )
+              ],
+            )));
   }
 }

@@ -20,11 +20,11 @@ class _HomePageState extends State<HomePage> {
     super.initState();
   }
 
-  void _cerrarSesion() => Navigator.of(context).pushReplacementNamed('/login');
+  void _cerrarSesion() =>
+      Navigator.of(context).pushReplacementNamed('/newlogin');
   void _pagError() => Navigator.of(context).pushNamed('/error404');
   void _cargarSaldo() => Navigator.of(context).pushNamed('/cargar');
   void _userPage() => Navigator.of(context).pushNamed('/user');
-  void _cart() => Navigator.of(context).pushNamed('/cart');
   void _scannerPage() => Navigator.of(context).pushNamed('/scannerpage');
 
   @override

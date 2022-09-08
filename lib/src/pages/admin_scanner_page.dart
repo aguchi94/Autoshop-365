@@ -13,7 +13,8 @@ class _AdminScannerPageState extends State<AdminScannerPage> {
   String _code = '';
   int counter = 0;
   int counter2 = 0;
-  void _cerrarSesion() => Navigator.of(context).pushReplacementNamed('/login');
+  void _cerrarSesion() =>
+      Navigator.of(context).pushReplacementNamed('/newlogin');
 
   @override
   Widget build(BuildContext context) {
