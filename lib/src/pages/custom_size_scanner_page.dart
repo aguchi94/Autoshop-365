@@ -128,9 +128,7 @@ class _CustomSizeScannerPageState extends State<CustomSizeScannerPage> {
               style: ElevatedButton.styleFrom(
                   fixedSize: const Size(180, 45), primary: Colors.green),
               child: const Text("Finalizar compra"),
-              onPressed: () {
-                _compraFinalizada(context);
-              },
+              onPressed: () {},
             ),
           ),
         ],
@@ -258,6 +256,7 @@ class ProductController {
 
 void _compraFinalizada(BuildContext context) {
   showDialog(
+      barrierColor: Colors.black87,
       barrierDismissible: false,
       context: context,
       builder: ((context) => AlertDialog(
