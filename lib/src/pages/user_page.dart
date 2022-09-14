@@ -1,3 +1,4 @@
+import 'package:aguchi_prueba1/src/class/person.dart';
 import 'package:flutter/material.dart';
 import 'package:aguchi_prueba1/src/widgets/appBarPages.dart';
 
