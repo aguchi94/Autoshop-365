@@ -31,15 +31,9 @@ class _AppBarcodeState extends State<AppBarcodeScannerWidget> {
 
   bool _useCameraScan = true;
 
-  bool _openManual = false;
-
-  String _inputValue = "";
-
   @override
   void initState() {
     super.initState();
-
-    _openManual = widget.openManual;
 
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       TargetPlatform platform = Theme.of(context).platform;
@@ -83,9 +77,7 @@ class _AppBarcodeState extends State<AppBarcodeScannerWidget> {
               ? _useCameraScan
                   ? _BarcodeScannerWidget()
                   : _BarcodeInputWidget.defaultStyle(
-                      changed: (String value) {
-                        _inputValue = value;
-                      },
+                      changed: (String value) {},
                     )
               : Center(
                   child: OutlinedButton(

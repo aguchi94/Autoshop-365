@@ -22,8 +22,10 @@ class _NewLoginPageState extends State<NewLoginPage> {
             child: Center(
           child: ListView(
             children: [
-              SizedBox(height: 35),
+              SizedBox(height: 25),
+
               //Logo Autoshop
+
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   primary: Colors.grey[300],
@@ -31,7 +33,7 @@ class _NewLoginPageState extends State<NewLoginPage> {
                 ),
                 child: Center(
                     child: Image.asset(
-                  'assets/logo365.png',
+                  'assets/newlogo365.png',
                   width: 150,
                 )),
                 onPressed: () => {
@@ -41,6 +43,7 @@ class _NewLoginPageState extends State<NewLoginPage> {
               SizedBox(height: 20),
 
               //Bienvenido!!
+
               Center(
                 child: Text(
                   'Bienvenido..',
@@ -50,17 +53,22 @@ class _NewLoginPageState extends State<NewLoginPage> {
                 ),
               ),
               SizedBox(height: 10),
+
               //Eslogan
+
               Center(
                 child: Text(
                   'Hacemos tu vida mas sencilla!',
                   style: TextStyle(
+                    color: Color.fromARGB(255, 100, 60, 180),
                     fontSize: 20,
                   ),
                 ),
               ),
               SizedBox(height: 50),
+
               //usuario
+
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25.0),
                 child: Container(
@@ -83,6 +91,7 @@ class _NewLoginPageState extends State<NewLoginPage> {
               SizedBox(height: 10),
 
               //password
+
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25.0),
                 child: Container(
@@ -106,6 +115,7 @@ class _NewLoginPageState extends State<NewLoginPage> {
               SizedBox(height: 10),
 
               //sign in button
+
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25.0),
                 child: ElevatedButton(
@@ -137,6 +147,7 @@ class _NewLoginPageState extends State<NewLoginPage> {
               SizedBox(height: 25),
 
               //Registrarse
+
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -163,6 +174,8 @@ class _NewLoginPageState extends State<NewLoginPage> {
           ),
         )));
   }
+
+//Acceso Admin
 
   Future<dynamic> adminUser(BuildContext context) {
     return showDialog(
