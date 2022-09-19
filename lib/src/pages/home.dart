@@ -81,7 +81,7 @@ class _HomePageState extends State<HomePage> {
           CustomButton(
               width: 110,
               imageRoute: 'assets/puerta_abierta.png',
-              onPressed: () => _pagError()),
+              onPressed: () => openDoor(context)),
           const HelpButton(
             info: "Presione aquí para abrir la puerta de Autoshop",
             imageRoute: 'assets/puerta_abierta.png',
@@ -120,5 +120,44 @@ class _HomePageState extends State<HomePage> {
             }),
       ]),
     );
+  }
+
+  Future<dynamic> openDoor(BuildContext context) {
+    return showDialog(
+        barrierDismissible: false,
+        context: context,
+        builder: ((context) => AlertDialog(
+              title: Image.asset('assets/open-door.gif', width: 95),
+              content: Text('Ya puedes ingresar!',
+                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
+              actions: [
+                Center(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(primary: Colors.green),
+                        child: Row(
+                          children: [
+                            Text('OK!',
+                                style: TextStyle(
+                                    fontSize: 20, fontWeight: FontWeight.bold)),
+                            SizedBox(width: 20),
+                            Icon(
+                              Icons.thumb_up,
+                              size: 35,
+                              color: Colors.white,
+                            ),
+                          ],
+                        ),
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                      )
+                    ],
+                  ),
+                )
+              ],
+            )));
   }
 }

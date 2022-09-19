@@ -17,7 +17,7 @@ class CustomAppBarPages extends StatelessWidget {
           ],
           elevation: 0,
           centerTitle: true,
-          backgroundColor: const Color.fromARGB(233, 128, 212, 235),
+          backgroundColor: const Color.fromARGB(255, 100, 60, 180),
           title: Text(title),
         ),
         body: Container(
