@@ -1,4 +1,6 @@
+import 'package:aguchi_prueba1/src/class/class.dart';
 import 'package:aguchi_prueba1/src/pages/home.dart';
+import 'package:aguchi_prueba1/src/widgets/list_product.dart';
 import 'package:flutter/material.dart';
 import 'package:aguchi_prueba1/src/widgets/app_barcode_scanner_widget.dart';
 
@@ -11,6 +13,14 @@ class CustomSizeScannerPage extends StatefulWidget {
 }
 
 class _CustomSizeScannerPageState extends State<CustomSizeScannerPage> {
+  Producto yerba = Producto('7791720024041', 'Yerba', 400);
+
+  final List _listProduct = [
+    'Yerba Playadito 500gr',
+    'Bolsa de compras',
+    'Jamon Paladini 200gr',
+  ];
+
   String _code = '';
   int counter = 0;
   int quantitiProd = 0;
@@ -58,70 +68,28 @@ class _CustomSizeScannerPageState extends State<CustomSizeScannerPage> {
           Column(
             children: [
               Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Container(
-                      decoration: const BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(20)),
-                        color: Colors.white24,
-                      ),
-                      height: 350,
-                      width: 360,
-                      child: ListView.builder(
-                        shrinkWrap: true,
-                        itemBuilder: (BuildContext context, int index) {
-                          return Container(
-                              decoration: BoxDecoration(
-                                color: Color.fromARGB(238, 168, 240, 253),
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(20)),
-                              ),
-                              child: const ListTile(
-                                trailing: Icon(
-                                  Icons.delete,
-                                  color: Colors.red,
-                                ),
-                                title: Text(
-                                    "1    Yerba Playadito   " + "    500gr",
-                                    style: TextStyle(
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.bold)),
-                                subtitle: Center(
-                                  child: Text("\$390,00",
-                                      style: TextStyle(
-                                          color:
-                                              Color.fromARGB(206, 26, 162, 72),
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.bold)),
-                                ),
-                              ));
-                        },
-                        itemCount: number,
-                      )))
+                padding: const EdgeInsets.all(10.0),
+                child: Container(
+                  decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(20)),
+                    color: Colors.white24,
+                  ),
+                  height: 350,
+                  width: 360,
+                  child: ListView.builder(
+                    shrinkWrap: true,
+                    itemBuilder: (BuildContext context, int index) {
+                      return ListProduct(
+                        child: _listProduct[index],
+                      );
+                    },
+                    itemCount: _listProduct.length,
+                  ),
+                ),
+              ),
             ],
           ),
-          Container(
-            decoration: const BoxDecoration(
-              borderRadius: BorderRadius.all(Radius.circular(20)),
-              color: Color.fromARGB(238, 168, 240, 253),
-            ),
-            height: 68,
-            width: 350,
-            child: Row(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Text("TOTAL : ",
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-                ),
-                Text("                 \$$precio1",
-                    style: TextStyle(
-                        color: Colors.red,
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold)),
-              ],
-            ),
-          ),
+          precioTotal(),
           Padding(
             padding: const EdgeInsets.all(20.0),
             child: ElevatedButton(
@@ -131,6 +99,38 @@ class _CustomSizeScannerPageState extends State<CustomSizeScannerPage> {
               onPressed: () {
                 _buyFinished(context);
               },
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Container precioTotal() {
+    return Container(
+      decoration: const BoxDecoration(
+        borderRadius: BorderRadius.all(
+          Radius.circular(20),
+        ),
+        color: Color.fromARGB(238, 168, 240, 253),
+      ),
+      height: 68,
+      width: 350,
+      child: Row(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Text(
+              "TOTAL : ",
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+          ),
+          Text(
+            "                 \$$precio1",
+            style: TextStyle(
+              color: Colors.red,
+              fontSize: 25,
+              fontWeight: FontWeight.bold,
             ),
           ),
         ],

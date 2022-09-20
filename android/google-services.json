@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "495609773431",
+    "project_id": "autoshop-365",
+    "storage_bucket": "autoshop-365.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:495609773431:android:e83ccd70dde03a4aa6b572",
+        "android_client_info": {
+          "package_name": "com.example.aguchi_prueba1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "495609773431-7l9iv3qv0bru92lo982ku5bm00qp5dhb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDzKGq9HbaMswEVqSJM89KcYrh4jlzkEeY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "495609773431-7l9iv3qv0bru92lo982ku5bm00qp5dhb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

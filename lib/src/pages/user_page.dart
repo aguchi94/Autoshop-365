@@ -1,4 +1,4 @@
-import 'package:aguchi_prueba1/src/class/person.dart';
+import 'package:aguchi_prueba1/src/class/class.dart';
 import 'package:flutter/material.dart';
 import 'package:aguchi_prueba1/src/widgets/appBarPages.dart';
 
@@ -10,6 +10,9 @@ class UserPage extends StatefulWidget {
 }
 
 class _UserPageState extends State<UserPage> {
+  Person agustin = new Person(
+      'Agustin', 'Felix Mendelsohn 1675', 'agudemoreno2@gmail.com', 100);
+
   @override
   Widget build(BuildContext context) {
     return CustomAppBarPages(
@@ -31,7 +34,7 @@ class _UserPageState extends State<UserPage> {
                           color: Colors.blue,
                         ),
                         SizedBox(width: 50),
-                        Text("Haras Maria Victoria"),
+                        Text(agustin.direccion),
                       ],
                     ),
                     SizedBox(height: 10),
@@ -45,7 +48,7 @@ class _UserPageState extends State<UserPage> {
                           color: Colors.blue,
                         ),
                         SizedBox(width: 50),
-                        Text("Agustin Sanchez"),
+                        Text(agustin.nombre),
                       ],
                     ),
                     SizedBox(height: 10),
@@ -55,7 +58,7 @@ class _UserPageState extends State<UserPage> {
                         SizedBox(width: 50),
                         Icon(Icons.mail, size: 50, color: Colors.blue),
                         SizedBox(width: 50),
-                        Text("agudemoreno2@gmail.com"),
+                        Text(agustin.correo),
                       ],
                     ),
                     SizedBox(height: 10),
