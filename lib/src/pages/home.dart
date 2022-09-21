@@ -25,7 +25,7 @@ class _HomePageState extends State<HomePage> {
   void _pagError() => Navigator.of(context).pushNamed('/error404');
   void _cargarSaldo() => Navigator.of(context).pushNamed('/cargar');
   void _userPage() => Navigator.of(context).pushNamed('/user');
-  void _scannerPage() => Navigator.of(context).pushNamed('/scannerpage');
+  void _scannerPage() => Navigator.of(context).pushNamed('/newscan');
 
   @override
   Widget build(BuildContext context) {

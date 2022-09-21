@@ -17,14 +17,14 @@ class CustomAppBarPages extends StatelessWidget {
           ],
           elevation: 0,
           centerTitle: true,
-          backgroundColor: const Color.fromARGB(255, 100, 60, 180),
+          backgroundColor: const Color.fromARGB(255, 131, 200, 213),
           title: Text(title),
         ),
         body: Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(
               colors: [
-                Color.fromARGB(255, 100, 60, 180),
+                Color.fromARGB(255, 131, 200, 213),
                 Colors.black26,
               ],
               begin: Alignment.topCenter,

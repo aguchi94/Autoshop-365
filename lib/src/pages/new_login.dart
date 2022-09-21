@@ -59,7 +59,7 @@ class _NewLoginPageState extends State<NewLoginPage> {
               Center(
                 child: Text(
                   'Hacemos tu vida mas sencilla!',
-                  style: TextStyle(
+                  style: GoogleFonts.handlee(
                     color: Color.fromARGB(255, 100, 60, 180),
                     fontSize: 20,
                   ),
