@@ -1,6 +1,7 @@
 import 'package:aguchi_prueba1/src/class/class.dart';
 import 'package:flutter/material.dart';
 import 'package:aguchi_prueba1/src/widgets/appBarPages.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class UserPage extends StatefulWidget {
   const UserPage({Key? key}) : super(key: key);
@@ -15,13 +16,16 @@ class _UserPageState extends State<UserPage> {
 
   @override
   Widget build(BuildContext context) {
-    return CustomAppBarPages(
-        title: "Datos del Usuario",
-        child: ListView(children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Card(
-                color: const Color.fromARGB(220, 220, 220, 220),
+    return Scaffold(
+      backgroundColor: Colors.grey[300],
+      body: SafeArea(
+        child: ListView(
+          children: <Widget>[
+            titulo(),
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Card(
+                color: Colors.deepPurple[200],
                 child: Column(
                   children: [
                     //Direccion
@@ -31,7 +35,7 @@ class _UserPageState extends State<UserPage> {
                         Icon(
                           Icons.house,
                           size: 50,
-                          color: Colors.blue,
+                          color: Colors.deepPurple[500],
                         ),
                         SizedBox(width: 50),
                         Text(agustin.direccion),
@@ -45,7 +49,7 @@ class _UserPageState extends State<UserPage> {
                         Icon(
                           Icons.person,
                           size: 50,
-                          color: Colors.blue,
+                          color: Colors.deepPurple[500],
                         ),
                         SizedBox(width: 50),
                         Text(agustin.nombre),
@@ -56,7 +60,11 @@ class _UserPageState extends State<UserPage> {
                     Row(
                       children: [
                         SizedBox(width: 50),
-                        Icon(Icons.mail, size: 50, color: Colors.blue),
+                        Icon(
+                          Icons.mail,
+                          size: 50,
+                          color: Colors.deepPurple[500],
+                        ),
                         SizedBox(width: 50),
                         Text(agustin.correo),
                       ],
@@ -69,7 +77,7 @@ class _UserPageState extends State<UserPage> {
                         Icon(
                           Icons.attach_money,
                           size: 50,
-                          color: Colors.blue,
+                          color: Colors.deepPurple[500],
                         ),
                         SizedBox(width: 50),
                         Text("\$500,00"),
@@ -83,7 +91,7 @@ class _UserPageState extends State<UserPage> {
                         Icon(
                           Icons.key,
                           size: 50,
-                          color: Colors.blue,
+                          color: Colors.deepPurple[500],
                         ),
                         SizedBox(width: 50),
                         ElevatedButton(
@@ -95,8 +103,40 @@ class _UserPageState extends State<UserPage> {
                       ],
                     ),
                   ],
-                )),
-          )
-        ]));
+                ),
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+
+  Padding titulo() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(
+        vertical: 5.0,
+        horizontal: 15.0,
+      ),
+      child: Row(
+        children: [
+          Text(
+            'DATOS DEL USUARIO',
+            textAlign: TextAlign.center,
+            style: GoogleFonts.coda(
+              color: Colors.black54,
+              fontSize: 25,
+              //fontWeight: FontWeight.bold,
+            ),
+          ),
+          SizedBox(width: 50),
+          Image.asset(
+            'assets/logo365.png',
+            width: 40,
+            height: 40,
+          ),
+        ],
+      ),
+    );
   }
 }

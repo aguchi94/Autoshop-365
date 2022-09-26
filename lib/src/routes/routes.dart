@@ -6,6 +6,7 @@ import 'package:aguchi_prueba1/src/pages/scanner_page.dart';
 import 'package:aguchi_prueba1/src/pages/shopping_cart.dart';
 import 'package:aguchi_prueba1/src/pages/user_page.dart';
 import 'package:aguchi_prueba1/src/pages/wallet.dart';
+import 'package:aguchi_prueba1/src/widgets/load_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:aguchi_prueba1/src/pages/home.dart';
 import 'package:aguchi_prueba1/src/pages/login.dart';

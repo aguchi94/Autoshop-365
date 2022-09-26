@@ -1,3 +1,4 @@
+import 'package:aguchi_prueba1/src/widgets/shadow_buttons.dart';
 import 'package:flutter/material.dart';
 
 class InfoButton extends StatelessWidget {
@@ -9,24 +10,21 @@ class InfoButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-        child: Container(
-            width: 320,
-            height: 120,
-            margin: const EdgeInsets.all(7),
-            decoration: const BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(20)),
-                boxShadow: [
-                  BoxShadow(
-                      color: Colors.black45,
-                      offset: Offset(2, 4),
-                      blurRadius: 6)
-                ]),
-            child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                    primary: Color.fromARGB(210, 210, 210, 210),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20.0))),
-                onPressed: onPressed,
-                child: child)));
+      child: ShadowButonn(
+        width: 320,
+        height: 120,
+        color: Colors.deepPurple[200],
+        child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            primary: Colors.deepPurple[200],
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12.0),
+            ),
+          ),
+          onPressed: onPressed,
+          child: child,
+        ),
+      ),
+    );
   }
 }

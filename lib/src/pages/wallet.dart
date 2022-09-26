@@ -99,7 +99,6 @@ class _WalletPageState extends State<WalletPage> {
                           'Enviar',
                           style: GoogleFonts.coda(
                             fontSize: 15,
-                            //fontWeight: FontWeight.bold,
                             color: Colors.white,
                           ),
                         ),
@@ -156,12 +155,20 @@ class _WalletPageState extends State<WalletPage> {
                 children: [
                   Container(
                     height: 60,
-                    child: Image.asset('assets/movimientos.png'),
+                    child: Image.asset(
+                      'assets/movimientos.png',
+                    ),
                   ),
                   SizedBox(
                     width: 15,
                   ),
-                  Text('Ultimos movimientos'),
+                  Text(
+                    'Ultimos movimientos',
+                    style: GoogleFonts.coda(
+                      fontSize: 15,
+                      color: Colors.black54,
+                    ),
+                  ),
                   SizedBox(
                     width: 50,
                   ),

@@ -1,3 +1,5 @@
+import 'package:aguchi_prueba1/src/pages/home.dart';
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -119,30 +121,41 @@ class _NewLoginPageState extends State<NewLoginPage> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25.0),
                 child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    primary: Colors.grey[300],
-                    elevation: 0,
-                  ),
-                  child: Container(
-                    width: 400,
-                    padding: EdgeInsets.all(20),
-                    decoration: BoxDecoration(
-                      color: Colors.deepPurple,
-                      borderRadius: BorderRadius.circular(12),
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.grey[300],
+                      elevation: 0,
                     ),
-                    child: Center(
-                      child: Text(
-                        'Iniciar sesión',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18,
+                    child: Container(
+                      width: 400,
+                      padding: EdgeInsets.all(20),
+                      decoration: BoxDecoration(
+                        color: Colors.deepPurple,
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: Center(
+                        child: Text(
+                          'Iniciar sesión',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  onPressed: () => _iniciarSesion(),
-                ),
+                    onPressed: () => {
+                          loading(context),
+                          Future.delayed(
+                              Duration(
+                                seconds: 4,
+                              ), () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: ((context) => HomePage()),
+                              ),
+                            );
+                          }),
+                        }),
               ),
               SizedBox(height: 25),
 
@@ -173,6 +186,45 @@ class _NewLoginPageState extends State<NewLoginPage> {
             ],
           ),
         )));
+  }
+
+  Future<dynamic> loading(BuildContext context) {
+    return showDialog(
+      barrierColor: Colors.grey[300],
+      context: context,
+      builder: (context) {
+        return Center(
+          child: Column(
+            children: [
+              FadeInDown(
+                from: 100,
+                duration: Duration(
+                  milliseconds: 3000,
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(100.0),
+                  child: Image.asset('assets/newlogo365.png'),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: Text(
+                  'Iniciando sesión...',
+                  style: GoogleFonts.coda(
+                    fontSize: 25,
+                    color: Colors.black54,
+                  ),
+                ),
+              ),
+              SizedBox(height: 20),
+              CircularProgressIndicator(
+                color: Colors.deepPurple,
+              ),
+            ],
+          ),
+        );
+      },
+    );
   }
 
 //Acceso Admin
