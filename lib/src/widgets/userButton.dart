@@ -56,7 +56,7 @@ class _UserButtonState extends State<UserButton> {
                   textAlign: TextAlign.center,
                 ),
                 subtitle: Text(
-                  "\$500,00",
+                  "\$1.250,00",
                   style: GoogleFonts.coda(
                     fontSize: 25,
                     color: Colors.white70,

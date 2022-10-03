@@ -39,11 +39,7 @@ class _LoadingStateState extends State<LoadingState> {
               Padding(
                 padding: const EdgeInsets.all(15.0),
                 child: Text(
-                  'Iniciando sesión...',
-                  style: GoogleFonts.coda(
-                    fontSize: 25,
-                    color: Colors.black54,
-                  ),
+                  'Iniciando',
                 ),
               ),
               SizedBox(height: 20),

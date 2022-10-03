@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:ai_barcode/ai_barcode.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:flutter/foundation.dart';
+import 'package:aguchi_prueba1/src/providers/product_provider.dart';
+import 'package:aguchi_prueba1/src/models/products.dart';
+import 'package:provider/provider.dart';
 
 late String _label;
 late Function(String result) _resultCallback;

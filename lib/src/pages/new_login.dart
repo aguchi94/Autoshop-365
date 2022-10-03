@@ -147,7 +147,7 @@ class _NewLoginPageState extends State<NewLoginPage> {
                           loading(context),
                           Future.delayed(
                               Duration(
-                                seconds: 4,
+                                seconds: 3,
                               ), () {
                             Navigator.of(context).push(
                               MaterialPageRoute(
@@ -204,16 +204,6 @@ class _NewLoginPageState extends State<NewLoginPage> {
                 child: Padding(
                   padding: const EdgeInsets.all(100.0),
                   child: Image.asset('assets/newlogo365.png'),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(15.0),
-                child: Text(
-                  'Iniciando sesión...',
-                  style: GoogleFonts.coda(
-                    fontSize: 25,
-                    color: Colors.black54,
-                  ),
                 ),
               ),
               SizedBox(height: 20),

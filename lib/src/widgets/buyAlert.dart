@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:aguchi_prueba1/src/providers/product_provider.dart';
+import 'package:aguchi_prueba1/src/models/products.dart';
+import 'package:provider/provider.dart';
+import 'package:aguchi_prueba1/src/pages/scanner_page.dart';
 
 class AddProduct extends StatefulWidget {
-  const AddProduct({Key? key}) : super(key: key);
+  AddProduct({Key? key}) : super(key: key);
 
   @override
   State<AddProduct> createState() => _AddProductState();
@@ -12,24 +16,25 @@ class _AddProductState extends State<AddProduct> {
 
   @override
   Widget build(BuildContext context) {
+    final product = Provider.of<ProductProvider>(context);
     return Scaffold(
       backgroundColor: Colors.grey[500],
       body: Column(
         children: [
-          alertDialog(context),
+          alertDialog(product),
         ],
       ),
     );
   }
 
-  AlertDialog alertDialog(BuildContext context) {
+  AlertDialog alertDialog(ProductProvider product) {
     return AlertDialog(
       content: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const ListTile(
+          ListTile(
             title: Text(
-              "Yerba Playadito 500gr",
+              '',
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
             ),
