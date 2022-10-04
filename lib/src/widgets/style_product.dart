@@ -12,7 +12,6 @@ class StyleProduct extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(
-        vertical: 8.0,
         horizontal: 15.0,
       ),
       child: ShadowButonn(

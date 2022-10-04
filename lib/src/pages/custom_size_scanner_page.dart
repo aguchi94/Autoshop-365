@@ -1,4 +1,3 @@
-import 'package:aguchi_prueba1/src/class/class.dart';
 import 'package:aguchi_prueba1/src/pages/home.dart';
 import 'package:aguchi_prueba1/src/widgets/style_product.dart';
 import 'package:flutter/material.dart';
@@ -13,14 +12,6 @@ class CustomSizeScannerPage extends StatefulWidget {
 }
 
 class _CustomSizeScannerPageState extends State<CustomSizeScannerPage> {
-  Producto yerba = Producto('7791720024041', 'Yerba', 400);
-
-  final List _listProduct = [
-    'Yerba Playadito 500gr',
-    'Bolsa de compras',
-    'Jamon Paladini 200gr',
-  ];
-
   String _code = '';
   int counter = 0;
   int quantitiProd = 0;
@@ -91,10 +82,10 @@ class _CustomSizeScannerPageState extends State<CustomSizeScannerPage> {
                     itemBuilder: (BuildContext context, int index) {
                       return StyleProduct(
                         subtitle: '',
-                        title: _listProduct[index],
+                        title: '',
                       );
                     },
-                    itemCount: _listProduct.length,
+                    itemCount: 0,
                   ),
                 ),
               ),
@@ -257,7 +248,7 @@ class _BuyAlertState extends State<BuyAlert> {
 
         //CANTIDAD
         Text(
-          "$counter1",
+          "$number",
           style: const TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
         ),
 

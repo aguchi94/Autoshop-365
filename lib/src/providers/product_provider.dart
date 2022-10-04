@@ -18,16 +18,12 @@ class ProductProvider extends ChangeNotifier {
 
   //Producto Escaneado
   addProductScan(Product product) {
-    if (productScanedList.length >= 1) {
-      productScanedList.removeLast();
-      productScanedList.add(product);
-    } else {
-      productScanedList.add(product);
-    }
+    productScanedList.clear();
+    productScanedList.add(product);
   }
 
   deleteProductScan(Product product) {
-    productScanedList.removeLast();
+    productScanedList.clear();
   }
 
   //Lista carrito
@@ -37,5 +33,9 @@ class ProductProvider extends ChangeNotifier {
 
   deleteProduct(Product productScaned) {
     productsCartShop.removeLast();
+  }
+
+  deleteAllProduct(Product productScaned) {
+    productsCartShop.clear();
   }
 }

@@ -6,7 +6,9 @@ import 'package:aguchi_prueba1/src/pages/custom_size_scanner_page.dart';
 import 'package:aguchi_prueba1/src/widgets/buyAlert.dart';
 import 'package:aguchi_prueba1/src/widgets/style_product.dart';
 import 'package:aguchi_prueba1/src/widgets/app_barcode_scanner_widget.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:ai_barcode/ai_barcode.dart';
 
 class ScannerPage extends StatefulWidget {
   const ScannerPage({Key? key}) : super(key: key);
@@ -47,14 +49,12 @@ class _ScannerPageState extends State<ScannerPage> {
     code: 7792798005888,
   );
   Product donSatur = Product(
-    id: 3,
+    id: 4,
     description: 'Bizcochito Don Satur',
     price: 120,
     weight: 200,
     code: 7795735000328,
   );
-
-  get index => null;
 
   @override
   void initState() {
@@ -83,17 +83,17 @@ class _ScannerPageState extends State<ScannerPage> {
       body: Column(
         children: [
           SizedBox(height: 50),
-          scannerBar(product),
+          scannerBar(context, product),
           SizedBox(height: 40),
-          titulo(),
           ListProduct(),
+          subTotal(),
           finalizarCompra(),
         ],
       ),
     );
   }
 
-  Center scannerBar(ProductProvider product) {
+  Center scannerBar(BuildContext context, ProductProvider product) {
     return Center(
       child: Container(
         decoration: BoxDecoration(
@@ -111,52 +111,80 @@ class _ScannerPageState extends State<ScannerPage> {
             String _brahma = '7792798005888';
             String _bolsa = '0643131504575';
             String _bizcohito = '7795735000328';
-            setState(
-              () {
-                if (_code == _playadito) {
-                  product.addProductScan(yerba);
-                } else if (_code == _brahma) {
-                  product.addProductScan(brahma);
-                } else if (_code == _bolsa) {
-                  product.addProductScan(bolsa);
-                } else if (_code == _bizcohito) {
-                  product.addProductScan(donSatur);
-                } else if (_code == _jamon) {
-                  product.addProductScan(jamon);
+            setState(() {
+              if (_code == _playadito) {
+                product.addProductScan(yerba);
+              } else if (_code == _brahma) {
+                product.addProductScan(brahma);
+              } else if (_code == _bolsa) {
+                product.addProductScan(bolsa);
+              } else if (_code == _bizcohito) {
+                product.addProductScan(donSatur);
+              } else if (_code == _jamon) {
+                product.addProductScan(jamon);
+              }
+              ;
+
+              Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => AddProduct()))
+                  .then((result) {
+                if (result != null) {
+                  setState(() {});
                 }
-                ;
-                //Navigator.of(context).push(
-                //MaterialPageRoute(
-                //builder: ((context) => AddProduct()),
-                //),
-                //);
-              },
-            );
+              });
+            });
           },
         ),
       ),
     );
   }
 
-  ShadowButonn titulo() {
+  ShadowButonn subTotal() {
+    final product = Provider.of<ProductProvider>(context);
     return ShadowButonn(
       width: 350,
       height: 80,
       color: Colors.grey[200],
       child: Center(
-        child: Text(
-          _code,
-        ),
-      ),
+          child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          Text(
+            'Subtotal :',
+            style: GoogleFonts.coda(
+              color: Colors.black54,
+              fontSize: 20,
+            ),
+          ),
+          SizedBox(width: 30),
+          Text(
+            '\$ 320 ',
+            style: GoogleFonts.coda(
+              color: Colors.green[700],
+              fontSize: 20,
+            ),
+          ),
+        ],
+      )),
     );
   }
 
   ElevatedButton finalizarCompra() {
+    final product = Provider.of<ProductProvider>(context);
     return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        primary: Colors.green,
+      ),
       child: Text(
         'Finalizar Compra',
       ),
-      onPressed: () {},
+      onPressed: () {
+        setState(() {
+          product.productsCartShop.clear();
+          product.productScanedList.clear();
+          _code = '';
+        });
+      },
     );
   }
 }
@@ -182,11 +210,11 @@ class _ListProductState extends State<ListProduct> {
       child: ListView.builder(
         itemBuilder: (context, index) {
           return StyleProduct(
-            title: product.productScanedList[index].description!,
-            subtitle: product.productScanedList[index].price!.toString(),
+            title: product.productsCartShop[index].description!,
+            subtitle: product.productsCartShop[index].price!.toString(),
           );
         },
-        itemCount: product.productScanedList.length,
+        itemCount: product.productsCartShop.length,
       ),
     );
   }

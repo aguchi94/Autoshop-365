@@ -1,4 +1,3 @@
-import 'package:aguchi_prueba1/src/class/class.dart';
 import 'package:flutter/material.dart';
 import 'package:aguchi_prueba1/src/widgets/appBarPages.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -11,9 +10,6 @@ class UserPage extends StatefulWidget {
 }
 
 class _UserPageState extends State<UserPage> {
-  Person agustin = new Person(
-      'Agustin', 'Felix Mendelsohn 1675', 'agudemoreno2@gmail.com', 100);
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,7 +34,7 @@ class _UserPageState extends State<UserPage> {
                           color: Colors.deepPurple[500],
                         ),
                         SizedBox(width: 50),
-                        Text(agustin.direccion),
+                        Text('agustin.direccion'),
                       ],
                     ),
                     SizedBox(height: 10),
@@ -52,7 +48,7 @@ class _UserPageState extends State<UserPage> {
                           color: Colors.deepPurple[500],
                         ),
                         SizedBox(width: 50),
-                        Text(agustin.nombre),
+                        Text('agustin.nombre'),
                       ],
                     ),
                     SizedBox(height: 10),
@@ -66,7 +62,7 @@ class _UserPageState extends State<UserPage> {
                           color: Colors.deepPurple[500],
                         ),
                         SizedBox(width: 50),
-                        Text(agustin.correo),
+                        Text('agustin.correo'),
                       ],
                     ),
                     SizedBox(height: 10),
