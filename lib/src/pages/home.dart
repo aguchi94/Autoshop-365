@@ -1,5 +1,4 @@
 import 'package:aguchi_prueba1/src/widgets/infoButtonLarge.dart';
-import 'package:aguchi_prueba1/src/widgets/load_screen.dart';
 import 'package:aguchi_prueba1/src/widgets/userButton.dart';
 import 'package:flutter/material.dart';
 import 'package:aguchi_prueba1/src/widgets/appBar.dart';
