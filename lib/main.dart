@@ -1,3 +1,4 @@
+import 'package:aguchi_prueba1/src/providers/person_provider.dart';
 import 'package:aguchi_prueba1/src/providers/product_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:aguchi_prueba1/src/routes/routes.dart';
@@ -16,6 +17,10 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           lazy: false,
           create: (_) => ProductProvider(),
+        ),
+        ChangeNotifierProvider(
+          lazy: false,
+          create: (_) => PersonProvider(),
         ),
       ],
       child: MaterialApp(

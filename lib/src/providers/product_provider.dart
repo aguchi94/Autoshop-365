@@ -5,7 +5,6 @@ class ProductProvider extends ChangeNotifier {
   List<Product> products = [];
   List<Product> productScanedList = [];
   List<Product> productsCartShop = [];
-  double total = 0;
 
   //Lista Back End
   addProduct(Product product) {

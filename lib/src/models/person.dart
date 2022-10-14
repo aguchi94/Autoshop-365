@@ -1,17 +1,15 @@
-class Person {
+class Users {
   int? id;
   String? name;
-  String? lastname;
-  String? balance;
-  String? location;
+  double? balance;
   String? email;
+  String? location;
 
-  Person({
+  Users({
     required this.id,
     required this.name,
-    required this.lastname,
     required this.balance,
-    required this.location,
     required this.email,
+    required this.location,
   });
 }

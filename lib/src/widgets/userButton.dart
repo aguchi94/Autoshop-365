@@ -17,7 +17,7 @@ class _UserButtonState extends State<UserButton> {
       child: ShadowButonn(
         width: 320,
         height: 120,
-        color: Colors.grey[200],
+        color: Colors.deepPurple[200],
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
             primary: Colors.deepPurple[200],
@@ -34,7 +34,7 @@ class _UserButtonState extends State<UserButton> {
                   Icon(
                     Icons.person,
                     size: 40,
-                    color: Colors.deepPurple[500],
+                    color: Colors.blue[500],
                   ),
                   SizedBox(width: 40),
                   Text(
