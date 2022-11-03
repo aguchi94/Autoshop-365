@@ -1,3 +1,4 @@
+import 'package:aguchi_prueba1/src/providers/person_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:aguchi_prueba1/src/providers/product_provider.dart';
 import 'package:aguchi_prueba1/src/widgets/shadow_buttons.dart';
@@ -70,6 +71,9 @@ class _ScannerPageState extends State<ScannerPage> {
     Provider.of<ProductProvider>(context, listen: false).addProduct(
       brahma,
     );
+    Provider.of<ProductProvider>(context, listen: false).addProduct(
+      donSatur,
+    );
 
     super.initState();
   }
@@ -80,15 +84,26 @@ class _ScannerPageState extends State<ScannerPage> {
 
     return Scaffold(
       backgroundColor: Colors.grey[300],
-      body: Column(
-        children: [
-          SizedBox(height: 50),
-          scannerBar(context, product),
-          SizedBox(height: 40),
-          ListProduct(),
-          subTotal(),
-          finalizarCompra(),
-        ],
+      body: SafeArea(
+        child: ListView(
+          children: [
+            SizedBox(height: 30),
+            scannerBar(context, product),
+            SizedBox(height: 20),
+            saldo(),
+            SizedBox(height: 10),
+            subTotal(),
+            SizedBox(height: 10),
+            cantidadProductos(),
+            SizedBox(height: 10),
+            ListProduct(),
+            SizedBox(height: 10),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 60),
+              child: finalizarCompra(),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -101,8 +116,7 @@ class _ScannerPageState extends State<ScannerPage> {
             Radius.circular(20),
           ),
         ),
-        width: 350,
-        height: 250,
+        height: 220,
         child: AppBarcodeScannerWidget.defaultStyle(
           resultCallback: (String code) {
             _code = code;
@@ -111,28 +125,76 @@ class _ScannerPageState extends State<ScannerPage> {
             String _brahma = '7792798005888';
             String _bolsa = '0643131504575';
             String _bizcohito = '7795735000328';
-            setState(() {
-              if (_code == _playadito) {
-                product.addProductScan(yerba);
-              } else if (_code == _brahma) {
-                product.addProductScan(brahma);
-              } else if (_code == _bolsa) {
-                product.addProductScan(bolsa);
-              } else if (_code == _bizcohito) {
-                product.addProductScan(donSatur);
-              } else if (_code == _jamon) {
-                product.addProductScan(jamon);
-              }
-              ;
-
-              Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => AddProduct()))
-                  .then((result) {
-                if (result != null) {
+            setState(
+              () {
+                if (_code == _playadito) {
+                  product.addProductScan(yerba);
+                  Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => AddProduct()))
+                      .then(
+                    (result) {
+                      if (result != null) {
+                        setState(() {});
+                      }
+                    },
+                  );
+                } else if (_code == _brahma) {
+                  product.addProductScan(brahma);
+                  Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => AddProduct()))
+                      .then(
+                    (result) {
+                      if (result != null) {
+                        setState(() {});
+                      }
+                    },
+                  );
+                } else if (_code == _bolsa) {
+                  product.addProductScan(bolsa);
+                  Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => AddProduct()))
+                      .then(
+                    (result) {
+                      if (result != null) {
+                        setState(() {});
+                      }
+                    },
+                  );
+                } else if (_code == _bizcohito) {
+                  product.addProductScan(donSatur);
+                  Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => AddProduct()))
+                      .then(
+                    (result) {
+                      if (result != null) {
+                        setState(() {});
+                      }
+                    },
+                  );
+                } else if (_code == _jamon) {
+                  product.addProductScan(jamon);
+                  Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => AddProduct()))
+                      .then(
+                    (result) {
+                      setState(() {
+                        product.productScanedList.removeLast();
+                        _code = '';
+                      });
+                    },
+                  );
+                } else if (product.productScanedList.length == 0) {
+                  showDialog(
+                    context: context,
+                    builder: ((context) => AlertDialog(
+                          content: Text('No se detectaron productos'),
+                        )),
+                  );
                   setState(() {});
                 }
-              });
-            });
+                ;
+              },
+            );
           },
         ),
       ),
@@ -142,15 +204,15 @@ class _ScannerPageState extends State<ScannerPage> {
   ShadowButonn subTotal() {
     final product = Provider.of<ProductProvider>(context);
     return ShadowButonn(
-      width: 350,
-      height: 80,
+      width: 330,
+      height: 50,
       color: Colors.grey[200],
       child: Center(
           child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           Text(
-            'Subtotal :',
+            'Total a debitar :',
             style: GoogleFonts.coda(
               color: Colors.black54,
               fontSize: 20,
@@ -158,7 +220,68 @@ class _ScannerPageState extends State<ScannerPage> {
           ),
           SizedBox(width: 30),
           Text(
-            '\$ 320 ',
+            '\$ ' + '00.0',
+            style: GoogleFonts.coda(
+              color: Colors.green[700],
+              fontSize: 20,
+            ),
+          ),
+        ],
+      )),
+    );
+  }
+
+  ShadowButonn saldo() {
+    final product = Provider.of<ProductProvider>(context);
+    final user = Provider.of<PersonProvider>(context);
+    return ShadowButonn(
+      width: 330,
+      height: 50,
+      color: Colors.grey[200],
+      child: Center(
+          child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          Text(
+            'Tu saldo actual es :',
+            style: GoogleFonts.coda(
+              color: Colors.black54,
+              fontSize: 20,
+            ),
+          ),
+          SizedBox(width: 30),
+          Text(
+            '\$ ' + user.users[0].balance.toString(),
+            style: GoogleFonts.coda(
+              color: Colors.green[700],
+              fontSize: 20,
+            ),
+          ),
+        ],
+      )),
+    );
+  }
+
+  ShadowButonn cantidadProductos() {
+    final product = Provider.of<ProductProvider>(context);
+    return ShadowButonn(
+      width: 330,
+      height: 50,
+      color: Colors.grey[200],
+      child: Center(
+          child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          Text(
+            'Productos en carrito :',
+            style: GoogleFonts.coda(
+              color: Colors.black54,
+              fontSize: 20,
+            ),
+          ),
+          SizedBox(width: 30),
+          Text(
+            product.productScanedList.length.toString(),
             style: GoogleFonts.coda(
               color: Colors.green[700],
               fontSize: 20,
@@ -206,7 +329,7 @@ class _ListProductState extends State<ListProduct> {
   Widget build(BuildContext context) {
     final product = Provider.of<ProductProvider>(context);
     return Container(
-      height: 300,
+      height: 200,
       child: ListView.builder(
         itemBuilder: (context, index) {
           return StyleProduct(
