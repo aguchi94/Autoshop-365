@@ -47,19 +47,19 @@ class _BackendPageState extends State<BackendPage> {
                 children: [
                   Row(
                     children: [
-                      Text('Nombre: '),
+                      Text('Nombre : '),
                       Text('${usersData[index]['nombre']}'),
                     ],
                   ),
                   Row(
                     children: [
-                      Text('Apellido: '),
+                      Text('Apellido : '),
                       Text('${usersData[index]['apellido']}'),
                     ],
                   ),
                   Row(
                     children: [
-                      Text('ID: '),
+                      Text('ID : '),
                       Text('${usersData[index]['_id']}'),
                     ],
                   ),
@@ -71,7 +71,7 @@ class _BackendPageState extends State<BackendPage> {
                   ),
                   Row(
                     children: [
-                      Text('Pass: '),
+                      Text('Pass : '),
                       Text('${usersData[index]['pass']}'),
                     ],
                   ),
