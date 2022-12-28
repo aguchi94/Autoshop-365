@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
         title: "Autoshop365 Beta",
         debugShowCheckedModeBanner: false,
         routes: getApplicationRoutes(),
-        initialRoute: '/newlogin',
+        initialRoute: '/productos',
         onUnknownRoute: (RouteSettings) {
           return MaterialPageRoute(
             builder: (BuildContext context) => const Error404page(),

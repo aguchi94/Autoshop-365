@@ -1,4 +1,3 @@
-import 'package:aguchi_prueba1/src/pages/custom_size_scanner_page.dart';
 import 'package:flutter/material.dart';
 import 'package:aguchi_prueba1/src/providers/product_provider.dart';
 import 'package:aguchi_prueba1/src/models/products.dart';

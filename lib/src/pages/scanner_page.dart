@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:aguchi_prueba1/src/providers/product_provider.dart';
 import 'package:aguchi_prueba1/src/widgets/shadow_buttons.dart';
 import 'package:aguchi_prueba1/src/models/products.dart';
-import 'package:aguchi_prueba1/src/pages/custom_size_scanner_page.dart';
 import 'package:aguchi_prueba1/src/widgets/buyAlert.dart';
 import 'package:aguchi_prueba1/src/widgets/style_product.dart';
 import 'package:aguchi_prueba1/src/widgets/app_barcode_scanner_widget.dart';
