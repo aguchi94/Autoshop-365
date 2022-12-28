@@ -122,14 +122,14 @@ class _NewLoginPageState extends State<NewLoginPage> {
                 padding: const EdgeInsets.symmetric(horizontal: 25.0),
                 child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      primary: Colors.grey[300],
+                      backgroundColor: Colors.grey[300],
                       elevation: 0,
                     ),
                     child: Container(
                       width: 400,
                       padding: EdgeInsets.all(20),
                       decoration: BoxDecoration(
-                        color: Colors.deepPurple,
+                        color: Colors.blue[300],
                         borderRadius: BorderRadius.circular(12),
                       ),
                       child: Center(
@@ -264,7 +264,7 @@ class _NewLoginPageState extends State<NewLoginPage> {
                 Center(
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      primary: Colors.grey[300],
+                      backgroundColor: Colors.grey[300],
                       elevation: 0,
                     ),
                     child: Container(

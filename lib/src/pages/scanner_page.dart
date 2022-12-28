@@ -1,3 +1,4 @@
+import 'package:aguchi_prueba1/src/pages/home.dart';
 import 'package:aguchi_prueba1/src/providers/person_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:aguchi_prueba1/src/providers/product_provider.dart';
@@ -251,7 +252,7 @@ class _ScannerPageState extends State<ScannerPage> {
           ),
           SizedBox(width: 30),
           Text(
-            '\$ ' + user.users[0].balance.toString(),
+            '\$ 1250,00',
             style: GoogleFonts.coda(
               color: Colors.green[700],
               fontSize: 20,
@@ -281,7 +282,7 @@ class _ScannerPageState extends State<ScannerPage> {
           ),
           SizedBox(width: 30),
           Text(
-            product.productScanedList.length.toString(),
+            product.productsCartShop.length.toString(),
             style: GoogleFonts.coda(
               color: Colors.green[700],
               fontSize: 20,
@@ -296,17 +297,31 @@ class _ScannerPageState extends State<ScannerPage> {
     final product = Provider.of<ProductProvider>(context);
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-        primary: Colors.green,
+        backgroundColor: Colors.green,
       ),
       child: Text(
         'Finalizar Compra',
       ),
       onPressed: () {
-        setState(() {
-          product.productsCartShop.clear();
-          product.productScanedList.clear();
-          _code = '';
-        });
+        if (product.productsCartShop.length >= 0) {
+          setState(
+            () {
+              comprando(context);
+              Future.delayed(
+                Duration(
+                  seconds: 5,
+                ),
+                () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: ((context) => HomePage()),
+                    ),
+                  );
+                },
+              );
+            },
+          );
+        } else {}
       },
     );
   }
@@ -342,3 +357,24 @@ class _ListProductState extends State<ListProduct> {
     );
   }
 }
+
+Future<dynamic> comprando(BuildContext context) {
+  return showDialog(
+    barrierDismissible: false,
+    context: context,
+    builder: ((context) => AlertDialog(
+          title: Image.asset('assets/cart-loading.gif', width: 95),
+          content: Text(
+            'Finalizando su compra..',
+            style: GoogleFonts.coda(
+              fontSize: 20,
+              color: Colors.black45,
+            ),
+          ),
+        )),
+  );
+}
+
+          //product.productsCartShop.clear();
+          //product.productScanedList.clear();
+          //_code = ''

@@ -17,10 +17,10 @@ class _UserButtonState extends State<UserButton> {
       child: ShadowButonn(
         width: 320,
         height: 120,
-        color: Colors.deepPurple[200],
+        color: Colors.blue[200],
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
-            primary: Colors.deepPurple[200],
+            backgroundColor: Colors.blue[200],
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(12.0),
             ),
